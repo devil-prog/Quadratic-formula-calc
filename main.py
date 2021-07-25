@@ -37,7 +37,9 @@ def run():
 #making gui
 
 root = tk.Tk()
-
+root.title("Quadratic-formula-calc")
+root.iconphoto(FALSE, PhotoImage(file = 'icon.png'))
+root.geometry('500x250')
 #add Widgets
 #Labels
 tk.Label(root, text="Enter a:").grid(row=0)
@@ -45,21 +47,18 @@ tk.Label(root, text="Enter b:").grid(row=1)
 tk.Label(root, text="Enter c:").grid(row=2)
 
 #Entrys
-ea = tk.Entry(root).grid(row=0,column=1)
-eb = tk.Entry(root).grid(row=1,column=1)
-ec = tk.Entry(root).grid(row=2,column=1)
+ea = tk.Entry(root)
+eb = tk.Entry(root)
+ec = tk.Entry(root)
+
+ea.grid(row=0,column=1)
+eb.grid(row=1,column=1)
+ec.grid(row=2,column=1)
 
 #Button
-tk.Button(root,text="Submit", command=run).grid(row=3,column=2)
+tk.Button(root,text="Submit", command=run).grid(row=3,column=2,padx=20,pady=20)
 
 root.mainloop()
 
 #delete this later
-'''for i in range(3):
-    run()
-    os.system('pause')
-
-print("Dont be Lazy man")
-os.system('pause')'''
-
 #coded by Devil-prog
