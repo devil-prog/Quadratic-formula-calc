@@ -1,6 +1,8 @@
 ##########################ON WORKING##########################
 #with Gui coming soon
 import os
+import tkinter as tk
+from tkinter import *
 
 class app:
     def __init__(self,a,b,c):
@@ -25,18 +27,39 @@ class app:
             print(f"{x} or {y}")
 
 def run():
-    a = float(input("Enter a: "))
-    b = float(input("Enter b: "))
-    c = float(input("Enter c: "))
+    a = float(ea.get())
+    b = float(eb.get())
+    c = float(ec.get())
 
     a = app(a,b,c)
     a.calculate(2)
     
-for i in range(3):
+#making gui
+
+root = tk.Tk()
+
+#add Widgets
+#Labels
+tk.Label(root, text="Enter a:").grid(row=0)
+tk.Label(root, text="Enter b:").grid(row=1)
+tk.Label(root, text="Enter c:").grid(row=2)
+
+#Entrys
+ea = tk.Entry(root).grid(row=0,column=1)
+eb = tk.Entry(root).grid(row=1,column=1)
+ec = tk.Entry(root).grid(row=2,column=1)
+
+#Button
+tk.Button(root,text="Submit", command=run).grid(row=3,column=2)
+
+root.mainloop()
+
+#delete this later
+'''for i in range(3):
     run()
     os.system('pause')
 
 print("Dont be Lazy man")
-os.system('pause')
+os.system('pause')'''
 
 #coded by Devil-prog
