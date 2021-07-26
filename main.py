@@ -1,5 +1,3 @@
-##########################ON WORKING##########################
-#with Gui coming soon
 import os
 import tkinter as tk
 from tkinter import *
@@ -9,7 +7,7 @@ class app:
     def __init__(self,a,b,c):
         self.a = float(a)
         self.b = float(b)
-        self.c = float(c)    
+        self.c = float(c)
 
     def calculate(self, k):
         i = self.b**2
@@ -22,18 +20,25 @@ class app:
         y = -self.b-i
         y = y/(2*self.a)
 
-        try:
-            out = str(round(x,k)) +  " or "  + str(round(y,k))
+        def output(out, ts):            #Output window goes here
             root = tk.Toplevel()
             root.geometry("720x72")
-            msg = tk.Label(root, text=str(out))
-            msg.config(font=('Helvetica bold', 40))
+            msg = tk.Label(root, text=out)
+            msg.config(font=('Helvetica bold', ts))
             msg.pack()
             print(out)
+
+        try:
+            out = str(str(round(x,k)) +  " or "  + str(round(y,k)))
+            output(out, 40)
+        
         except TypeError:
-            print(f"{x} or {y}")
+            out = str(str(x) + " or " + str(y))
+            output(out, 14)
+
         except:
             print(sys.exc_info()[0])
+
 
 def run():
     a = float(ea.get())
@@ -46,8 +51,7 @@ def run():
 def enter(event):
     run()
     
-#making gui
-
+#main window
 root = tk.Tk()
 root.title("Quadratic-formula-calc")
 root.iconphoto(FALSE, PhotoImage(file = 'icon.png'))
@@ -57,6 +61,7 @@ root.geometry('500x250')
 tk.Label(root, text="Enter a:").grid(row=0)
 tk.Label(root, text="Enter b:").grid(row=1)
 tk.Label(root, text="Enter c:").grid(row=2)
+tk.Label(root, text="press \"x\" to exit").grid(row=3)
 
 #Entrys
 ea = tk.Entry(root)
@@ -75,6 +80,4 @@ root.bind('<Return>', enter)
 root.bind('x', exit)
 
 root.mainloop()
-
-#delete this later
 #coded by Devil-prog
