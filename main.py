@@ -3,6 +3,7 @@
 import os
 import tkinter as tk
 from tkinter import *
+import sys
 
 class app:
     def __init__(self,a,b,c):
@@ -22,9 +23,17 @@ class app:
         y = y/(2*self.a)
 
         try:
-            print(f"{round(x,k)} or {round(y,k)}")
-        except:
+            out = str(round(x,k)) +  " or "  + str(round(y,k))
+            root = tk.Toplevel()
+            root.geometry("720x72")
+            msg = tk.Label(root, text=str(out))
+            msg.config(font=('Helvetica bold', 40))
+            msg.pack()
+            print(out)
+        except TypeError:
             print(f"{x} or {y}")
+        except:
+            print(sys.exc_info()[0])
 
 def run():
     a = float(ea.get())
@@ -33,6 +42,9 @@ def run():
 
     a = app(a,b,c)
     a.calculate(2)
+
+def enter(event):
+    run()
     
 #making gui
 
@@ -57,6 +69,10 @@ ec.grid(row=2,column=1)
 
 #Button
 tk.Button(root,text="Submit", command=run).grid(row=3,column=2,padx=20,pady=20)
+
+#keys binded
+root.bind('<Return>', enter)
+root.bind('x', exit)
 
 root.mainloop()
 
