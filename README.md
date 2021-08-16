@@ -1,9 +1,8 @@
 # Quadratic-formula-calc
 
-this is Quadratic-Formula : https://progbook.org/_images/formula.png
+## this is Quadratic-Formula:
 
-![quadratic formula](https://progbook.org/_images/formula.png)
-Format: ![Alt Text](url)
+![ax^2 + bx + c = 0](https://progbook.org/_images/formula.png)
 
 You have to enter a,b and c
   ||  ax^2 + bx + c = 0
